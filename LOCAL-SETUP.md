@@ -1,24 +1,30 @@
 # Windows 로컬 설치 · 포트 3061
 
-## Git으로 설치 (권장)
-PowerShell에서 실행합니다. Node.js 20 이상과 Git이 필요합니다.
+## 현재 전달 상태
+포트 3061 설정과 실행 검증을 완료했습니다. GitHub 연결 앱의 쓰기 권한 오류(403)로 원격 소스 업로드는 완료되지 않았습니다. 아래 ZIP 설치 후 PC의 GitHub 로그인으로 첫 업로드를 진행하세요.
+
+## ZIP으로 설치
+다운로드한 `banggood-local-3061.zip`을 아래 명령으로 설치합니다. 대상 폴더가 이미 있으면 먼저 내용을 확인해야 하며, 아래 명령은 기존 폴더에 덮어쓰지 않습니다.
 
 ```powershell
-New-Item -ItemType Directory -Force "E:\프로젝트" | Out-Null
-git clone https://github.com/nan29077/banggood.git "E:\프로젝트\방긋마켓"
-Set-Location "E:\프로젝트\방긋마켓"
+$target = 'E:\프로젝트\방긋마켓'
+if (Test-Path $target) { throw '대상 폴더가 이미 있습니다. 기존 내용을 먼저 확인하세요.' }
+Expand-Archive -LiteralPath "$env:USERPROFILE\Downloads\banggood-local-3061.zip" -DestinationPath $target
+Set-Location $target
+powershell -NoProfile -ExecutionPolicy Bypass -File .\setup-windows.ps1
 npm run dev
 ```
 
-`http://localhost:3061`을 엽니다. `start-local.cmd` 더블클릭으로도 실행합니다.
+다운로드 위치가 다르면 ZIP 경로를 바꿔 주세요. Node.js 20 이상, Git for Windows가 필요합니다.
+설정 스크립트는 현재 폴더에 Git을 초기화하고 `nan29077/banggood`의 main에 소스를 저장합니다. GitHub 로그인 창이 열리면 본인 계정으로 로그인합니다. 기존 원격 이력은 강제로 덮어쓰지 않습니다.
+GitHub 저장이 실패해도 로컬 소스는 그대로이며 `npm run dev`로 실행할 수 있습니다.
+
+`http://localhost:3061`을 엽니다. 이후 `start-local.cmd` 더블클릭으로도 실행합니다.
 별도 패키지 설치, DB 설치, 빌드는 필요 없습니다. 종료는 Ctrl+C입니다.
-기존 폴더가 있으면 덮어쓰지 말고 먼저 내용을 확인합니다.
 
-## ZIP으로 설치
-압축 내 파일을 `E:\프로젝트\방긋마켓` 바로 아래에 풀어 package.json과 dist 폴더가 위치하게 합니다. `start-local.cmd`를 실행합니다.
-ZIP에는 Git 이력이 없으므로 Git으로 이어서 작업하려면 위 clone 방식이 권장됩니다.
-
-## 이후 작업
+## GitHub에 첫 저장이 완료된 이후
+다른 PC에는 `git clone https://github.com/nan29077/banggood.git "E:\프로젝트\방긋마켓"`으로 설치할 수 있습니다.
+기존 PC에서 작업을 이어갈 때:
 
 ```powershell
 Set-Location "E:\프로젝트\방긋마켓"
