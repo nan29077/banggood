@@ -14,14 +14,18 @@ function Run-Git {
     if ($LASTEXITCODE -ne 0) { throw 'Git command failed. Check the message above. Your local source is preserved.' }
 }
 if (-not (Test-Path '.git')) { Run-Git init -b main }
-$remote = & git remote get-url origin 2>$null
+function Get-GitValue {
+    $ErrorActionPreference = 'Continue'
+    & git @args 2>$null
+}
+$remote = Get-GitValue remote get-url origin
 if ($LASTEXITCODE -ne 0) { Run-Git remote add origin 'https://github.com/nan29077/banggood.git' }
 elseif ($remote -notmatch '^https://github\.com/nan29077/banggood(?:\.git)?/?$') { throw 'A different origin already exists. Check git remote -v before continuing.' }
-$userName = & git config user.name
+$userName = Get-GitValue config user.name
 if (-not $userName) { Run-Git config --local user.name 'nan29077' }
-$userEmail = & git config user.email
+$userEmail = Get-GitValue config user.email
 if (-not $userEmail) { Run-Git config --local user.email 'nan29077@users.noreply.github.com' }
-$head = & git rev-parse --verify HEAD 2>$null
+$head = Get-GitValue rev-parse --verify HEAD
 if ($LASTEXITCODE -ne 0) {
     Run-Git add -- .
     Run-Git commit -m 'Set up Banggeut Market local development on port 3061'
