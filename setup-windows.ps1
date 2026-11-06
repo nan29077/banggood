@@ -25,10 +25,14 @@ $userName = Get-GitValue config user.name
 if (-not $userName) { Run-Git config --local user.name 'nan29077' }
 $userEmail = Get-GitValue config user.email
 if (-not $userEmail) { Run-Git config --local user.email 'nan29077@users.noreply.github.com' }
+Run-Git add -- .
 $head = Get-GitValue rev-parse --verify HEAD
 if ($LASTEXITCODE -ne 0) {
-    Run-Git add -- .
-    Run-Git commit -m 'Set up Banggeut Market local development on port 3061'
+    Run-Git commit -m 'Set up Banggeut Market complete source'
+} else {
+    & git diff --cached --quiet
+    if ($LASTEXITCODE -eq 1) { Run-Git commit -m 'Update Banggeut Market layout and support console' }
+    elseif ($LASTEXITCODE -ne 0) { throw 'Unable to inspect staged changes.' }
 }
 Write-Host 'Connecting GitHub. Complete browser sign-in if Git asks for it.'
 Run-Git push -u origin main

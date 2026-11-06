@@ -37,9 +37,10 @@ export function createServer() {
   });
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const port=Number(process.env.PORT || 3061);
+  const portArg=process.argv.indexOf('--port');
+  const port=Number(portArg>=0?process.argv[portArg+1]:(process.env.PORT || 3061));
   if (!Number.isInteger(port)||port<1||port>65535) throw new Error('Invalid PORT');
   const server=createServer();
   server.on('error',error=>{console.error(error.code==='EADDRINUSE'?`Port ${port} is already in use. Close the existing server and retry.`:error.message);process.exitCode=1;});
-  server.listen(port,'127.0.0.1',()=>console.log(`방긋마켓: http://localhost:${port}\n종료: Ctrl+C`));
+  server.listen(port,'127.0.0.1',()=>console.log(`방긋마켓: http://127.0.0.1:${port}\n종료: Ctrl+C`));
 }

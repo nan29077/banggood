@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "방긋마켓 · 라이브 바자회 로컬 개발",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "node scripts/dev-server.mjs",
     "start": "node scripts/dev-server.mjs",
-    "test": "node scripts/test-server.mjs && node scripts/test-accounts.cjs && node scripts/test-commerce.cjs && node scripts/test-buyer.cjs"
+    "test": "node scripts/test-server.mjs && node scripts/test-accounts.cjs && node scripts/test-commerce.cjs && node scripts/test-buyer.cjs && node scripts/test-support.cjs"
   }
 }

@@ -108,3 +108,12 @@ Browser QA: hero is first app child; at 375px wide and 840px tall, after 1872px 
 - All generated and uploaded account avatars have fixed square dimensions, non-shrinking flex, circular clipping and cover for uploaded photos. Institution logos remain separate.
 - Validation: account/commerce/buyer suites passed. Browser observed 42-second video playing with readyState 4; mobile portraits 54×54/29×29 and admin header/sidebar 29×29/32×32, all radius 50%. Earlier browser flow verified address save, checkout prefill and test purchase in My orders. Existing demo limitations remain: no production OAuth, payment, shipping or refund services.
 - Video can be reassembled with `python scripts/assemble-promo.py`; its source clips/music are in docs/promo-source.
+
+## V9 PC 레이아웃·문의 상담
+- PC 메인/기관몰 600px, 모바일 520px 이하 유지. 콘솔은 좌측 메뉴 제외 전체 폭 사용.
+- 우측 세로 메뉴와 하단 문의 버튼, 왼쪽 여백 로고 제거·하단 텍스트 박스 제거.
+- 새 정원 바자회 생성 이미지: dist/assets/bazaar-garden-v9.jpg. 사이트 관리에서 선택·교체 가능.
+- 생성 프롬프트: 따뜻한 아이보리·세이지·살구색의 3D 스토리북 한국 바자회. 양끝의 봉사자·어르신·꽃·도자기·니트, 가운데 여백. 글자와 로고 없음. 내장 이미지 생성 도구 사용.
+- 문의 작성·유형·내 주문 연결·내 상담 기록·추가 메시지·FAQ, 관리자 검색·상태·우선순위·답변 템플릿·내부 메모·종료/재개.
+- 상담은 같은 브라우저 저장소에서 역할별로 검증하는 체험이며 실제 기기 간 상담은 서버 연동 필요.
+- 로컬 접속은 http://127.0.0.1:3061 사용 (localhost에 기존 별도 서버가 열려 있을 수 있음).

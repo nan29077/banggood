@@ -1,6 +1,6 @@
 'use strict';
 function consoleSidebar(menu){
- const groups=[['워크스페이스',['dashboard']],['상품·쇼핑몰',['products','goods','categories','inventory','mall']],['주문·고객',['orders','shipping','claims','customers','shoppers','coupons']],['기부·기관',['donations','intake','tracking','matching','donors','partners','institutions']],['정산·증빙',['sales','settlements','receipts','reports','analytics']],['사이트·운영',['studio','main-management','site-design','campaigns','news','notices','members','team','settings']]];
+ const groups=[['워크스페이스',['dashboard']],['상품·쇼핑몰',['products','goods','categories','inventory','mall']],['주문·고객',['orders','shipping','claims','customers','support','shoppers','coupons']],['기부·기관',['donations','intake','tracking','matching','donors','partners','institutions']],['정산·증빙',['sales','settlements','receipts','reports','analytics']],['사이트·운영',['studio','main-management','site-design','campaigns','news','notices','members','team','settings']]];
  const used=new Set();
  let html=groups.map(([label,keys])=>{const rows=menu.filter(([k])=>keys.includes(k));rows.forEach(([k])=>used.add(k));return rows.length?`<section class="sidebar-group"><h3>${label}</h3>${rows.map(([k,l])=>btn('console-tab',esc(l),consoleSection===k?'active':'',`data-section="${k}" ${consoleSection===k?'aria-current="page"':''}`)).join('')}</section>`:''}).join('');
  html+=menu.filter(([k])=>!used.has(k)).map(([k,l])=>btn('console-tab',esc(l),consoleSection===k?'active':'',`data-section="${k}"`)).join('');

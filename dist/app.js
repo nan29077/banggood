@@ -158,6 +158,7 @@ initDesignSystem();
 initCommerce();
 initAccounts();
 initBuyer();
+initSupport();
 initViewportChrome();
 render(true);
 function publishedNews(id){return db.notices.filter(n=>n.org===id&&n.status==='게시 중').map(n=>`<article class="notice-row"><small>${esc(n.date)} · 기관 소식</small><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p></article>`).join('')}
