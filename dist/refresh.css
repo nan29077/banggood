@@ -4,8 +4,15 @@
 @media(min-width:1041px){
  :root{--app-chrome-width:600px}
  .mobile-shell{width:600px;max-width:600px;margin-inline:auto}
- .brand-panel{width:calc((100vw - 600px)/2);padding:45px 3.2vw;pointer-events:none}
- .brand-story{margin-top:22px}.brand-story h1{font-size:clamp(25px,2.1vw,38px)}.brand-story p{font-size:12px}.brand-bottom{color:#476251;text-shadow:0 1px 9px #fff}
+ .brand-panel{width:calc((100vw - 600px)/2);padding:48px clamp(16px,2vw,40px);pointer-events:none}
+ .brand-story{width:100%;max-width:340px;align-self:center;margin-top:0;padding:clamp(16px,1.6vw,28px);background:#fffdf8eb;border:1px solid #ffffffd9;border-radius:20px;box-shadow:0 8px 32px #31453408;backdrop-filter:blur(12px);word-break:keep-all}
+ .brand-story .eyebrow{font-size:11px;line-height:1.6;letter-spacing:.7px;color:#61785f}
+ .brand-story h1{font-size:clamp(22px,1.8vw,34px);font-weight:600;line-height:1.5;letter-spacing:-1.1px;margin:16px 0 18px}
+ .brand-story h1 .story-line{display:block;color:var(--ink);font-weight:600;white-space:nowrap}
+ .brand-story h1 .story-signature{display:block;margin-top:4px;color:var(--coral);font-weight:800}
+ .brand-story p{font-size:clamp(11px,.85vw,13px);line-height:1.9;color:#697464;margin:0}
+ .brand-story .story-label{display:flex;gap:8px;margin-top:20px;padding:16px 0 0;border:0;border-top:1px solid #dce3d5;border-radius:0;background:none;backdrop-filter:none;font-size:11px;line-height:1.7;color:#61705a}
+ .brand-story .tiny-smile{flex-shrink:0}.brand-bottom{color:#476251;text-shadow:0 1px 9px #fff}
  .desktop-menu{left:calc(50% + 320px);width:88px;padding:9px;background:#fffffff5;border:1px solid #e0e7db;border-radius:23px;box-shadow:0 12px 35px #294d3612;max-height:calc(100dvh - 48px);overflow-y:auto;scrollbar-width:none}
  .desktop-menu .rail-label,.desktop-menu .rail-note{display:none}
  .desktop-menu .rail-item,.desktop-menu .rail-donate{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:7px;width:100%;padding:12px 3px;margin:3px 0;border-radius:15px;font-size:10px;line-height:1.5;background:transparent;color:#89958a;min-height:62px;white-space:normal}

@@ -1,11 +1,10 @@
 @echo off
-cd /d "%~dp0"
-where node >nul 2>nul
+setlocal
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\start-preview.ps1" %*
 if errorlevel 1 (
-  echo Node.js 20 or later is required. Install Node.js LTS and retry.
+  echo.
+  echo Preview could not start. See the message above.
   pause
   exit /b 1
 )
-set PORT=3061
-node scripts\dev-server.mjs
-pause
+exit /b 0
