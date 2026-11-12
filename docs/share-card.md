@@ -2,7 +2,7 @@
 
 - 메인 슬로건: **좋은 물건의 다음 이야기, 함께 방긋.**
 - 보조 슬로건: **사는 마음도, 나누는 마음도 방긋**
-- 이미지: `dist/assets/brand/banggeut-share-v1.png` (1731 × 909 PNG, 약 2.15 MiB)
+- 이미지: `dist/assets/brand/banggeut-share-v1.png` (1200 × 630 PNG, 약 350 KiB · 링크 미리보기 권장 크기)
 - 제작: 내장 image_gen 도구. 기존 꽃 미소 로고와 `bazaar-garden-v9.jpg`를 참고해 새 공유 카드 이미지를 생성했습니다.
 - 적용: `dist/index.html`의 정적 Open Graph 및 Twitter Card 메타 태그. JavaScript를 실행하지 않는 링크 수집기도 제목·설명·이미지 정보를 읽을 수 있습니다.
 

@@ -10,6 +10,7 @@
     "dev": "node scripts/dev-server.mjs",
     "start": "node scripts/dev-server.mjs",
     "share:configure": "node scripts/configure-share.mjs",
-    "test": "node scripts/test-server.mjs && node scripts/test-accounts.cjs && node scripts/test-commerce.cjs && node scripts/test-buyer.cjs && node scripts/test-support.cjs"
+    "test": "node scripts/test-server.mjs && node scripts/test-accounts.cjs && node scripts/test-commerce.cjs && node scripts/test-buyer.cjs && node scripts/test-support.cjs && node scripts/test-orders.cjs",
+    "test:browser": "node scripts/test-browser.mjs"
   }
 }
